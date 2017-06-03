@@ -16,38 +16,37 @@ public class FoodtrackApplication {
     public static void main(String[] args) {
         SpringApplication.run(FoodtrackApplication.class, args);
         // Connect to database
-        String hostName = "foodtrack.database.windows.net";
-        String dbName = "FoodTrack";
-        String user = "notroot";
-        String password = "adihajmaktre+69";
-        String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
+        String connectionUrl = "jdbc:sqlserver://foodtrack.database.windows.net:1433;database=FoodTrack;user=notroot@foodtrack;password=adihajmaktre+69";
+
+        // Declare the JDBC objects.
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
 
         try {
-            connection = DriverManager.getConnection(url);
-            String schema = connection.getSchema();
-            System.out.println("Successful connection - Schema: " + schema);
+            // Establish the connection.
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            con = DriverManager.getConnection(connectionUrl);
 
-            System.out.println("Query data example:");
-            System.out.println("=========================================");
+            // Create and execute an SQL statement that returns some data.
+            String SQL = "SELECT * FROM users";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(SQL);
 
-            // Create and execute a SELECT SQL statement.
-            String selectSql = "SELECT * FROM users";
-
-            try (Statement statement = connection.createStatement();
-                 ResultSet resultSet = statement.executeQuery(selectSql)) {
-
-                // Print results from select statement
-                System.out.println("Top 20 categories:");
-                while (resultSet.next())
-                {
-                    System.out.println(resultSet.getString(1) + " "
-                            + resultSet.getString(2));
-                }
+            // Iterate through the data in the result set and display it.
+            while (rs.next()) {
+                System.out.println(rs.getString(4) + " " + rs.getString(6));
             }
         }
+
+        // Handle any errors that may have occurred.
         catch (Exception e) {
             e.printStackTrace();
+        }
+        finally {
+            if (rs != null) try { rs.close(); } catch(Exception e) {}
+            if (stmt != null) try { stmt.close(); } catch(Exception e) {}
+            if (con != null) try { con.close(); } catch(Exception e) {}
         }
     }
 
