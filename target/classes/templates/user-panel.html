@@ -1,0 +1,140 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>FoodTrack - Track your fit lifestyle in the new way!</title>
+    <style type="text/css" media="all">
+        @import url("./materialize.css");
+        @import url("./main.css");
+    </style>
+    <link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
+          rel='stylesheet' type='text/css' />
+
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">FoodTrack</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="active"><a href="#">Your daily plan</a></li>
+            <li><a href="#">Account settings</a></li>
+            <li><a href="#">Log out!</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="index-banner" class="paralax-container">
+    <div class="section no-pad-bot">
+        <div class="container" style="padding-top: 40px">
+
+            <h1 class="header center white-text text-lighten-1" style="text-size: 3em">FoodTrack</h1>
+
+            <div class="row-center" style="text-align: center; padding-bottom: 100px" >
+                <h5 class="header col s12 light" style="color: white">Welcome to your user panel!</h5>
+                <h5 class="header col s12 light" style="color: white">See what we prepared for you today!</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax">
+        <img style="display: block; ; transform: translate3d(-50%, -100px, 0px)" alt="bg" th:src="@{ ./images/bg.jpg }"></img>
+        <div class="mask"></div>
+    </div>
+</div>
+
+<div class="row" style="background-color: white">
+    <div class="col s5 left" style="margin-left:25px; margin-top:25px">
+        <div class="row">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img th:src="@{./images/breakfast.jpg}" alt="img" style="height: 150px"></img>
+                </div>
+                <div class="card-stacked" style="margin-left: 10px">
+                    <span class="card-title">Breakfast</span>
+                    <div class="card-contene">
+                        <p>Scrambled eggs is always the best idea for nutrisious and fast breakfast!</p>
+                    </div>
+                    <div class="card-action">
+                        <a> See the receipt!</a>
+                        <a><i class="material-icons right" >thumb_down</i></a>
+                        <a><i class="material-icons right" >thumb_up</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img th:src="@{./images/dinner.jpg}" alt="img" style="height: 150px"></img>
+                </div>
+                <div class="card-stacked" style="margin-left: 10px">
+                    <span class="card-title">Dinner</span>
+                    <div class="card-contene">
+                        <p>Chicken salad is gonna make everyone happy, so don't waist your time, do it yourself </p>
+                    </div>
+                    <div class="card-action">
+                        <a > See the receipt!</a>
+                        <a><i class="material-icons right" >thumb_down</i></a>
+                        <a><i class="material-icons right" >thumb_up</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img th:src="@{./images/supper.jpg}" alt="img" style="height: 150px"></img>
+                </div>
+                <div class="card-stacked" style="margin-left: 10px">
+                    <span class="card-title">Supper</span>
+                    <div class="card-contene">
+                        <p>Oat straw? With bananas? Could have this been better?</p>
+                    </div>
+                    <div class="card-action">
+                        <a> See the receipt!</a>
+                        <a><i class="material-icons right" >thumb_down</i></a>
+                        <a><i class="material-icons right" >thumb_up</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s6 right" style="margin-top: 25px; margin-right: 10px">
+        <div class="card darken-1">
+            <img th:src="@{./images/user.jpg}" alt="user" class="circle" style="height: 100px; margin-left: 10px; margin-top: 10px"></img>
+            <span class="card-title">Welcom back, ${nickname}!</span>
+            <div class="card-content" style="padding-bottom: 50px">
+                <h5 class="left">Your data:</h5>
+                <br></br>
+                <br></br>
+                <h5><span class="left">Age:</span><span class="right"><p th:text="${age}"/>.</span></h5>
+                <br></br>
+                <h5><span class="left">Height:</span><span class="right">${height}</span></h5>
+                <br></br>
+                <h5><span class="left">Weight (Compared to last week):</span><span class="right"><p th:text="${weight}kg"/>. <span style="color: green"><p th:text="'(' + '${weightProgress}' +  'kg)'"/></span></span></h5>
+                <br></br>
+                <h5><span class="left">Your daily calories limit:</span><span class="right">${dailyCal} kcal</span></h5>
+                <br></br>
+                <h5><span class="left">Your diet goal:</span><span class="right" style="color: green" ><p th:text="${activity}"/></span></h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<footer class="page-footer">
+    <div class="container">
+
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Intercontinental Programmers
+            <a class="grey-text text-lighten-4 right" href="https://github.com/Intercontinental-Programmers/Hackaton">Find us on Github!</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
