@@ -9,10 +9,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 @SpringBootApplication
 public class FoodtrackApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(FoodtrackApplication.class, args);
         // Connect to database
