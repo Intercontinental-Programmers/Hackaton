@@ -12,6 +12,7 @@ public class User {
     private String height;
     private String weight;
     private String delta;
+    private String img;
 
     public User (int id) {
         String connectionUrl = "jdbc:sqlserver://foodtrack.database.windows.net:1433;database=FoodTrack;user=notroot@foodtrack;password=adihajmaktre+69";
@@ -27,7 +28,7 @@ public class User {
             con = DriverManager.getConnection(connectionUrl);
 
             // Create and execute an SQL statement that returns some data.
-            String SQL = "SELECT nick, email, age, height, weight, delta FROM users WHERE id_users = "+id;
+            String SQL = "SELECT nick, email, age, height, weight, delta, img FROM users WHERE id_users = "+id;
             stmt = con.createStatement();
             rs = stmt.executeQuery(SQL);
 
@@ -39,6 +40,7 @@ public class User {
             height = rs.getString(4);
             weight = rs.getString(5);
             delta = rs.getString(6);
+            img = rs.getString(7);
         }
 
         // Handle any errors that may have occurred.
@@ -50,6 +52,14 @@ public class User {
             if (stmt != null) try { stmt.close(); } catch(Exception e) {}
             if (con != null) try { con.close(); } catch(Exception e) {}
         }
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getNick(){
@@ -108,6 +118,7 @@ public class User {
                 ", height='" + height + '\'' +
                 ", weight='" + weight + '\'' +
                 ", delta='" + delta + '\'' +
+                ", img='" + img + '\'' +
                 '}';
     }
 }

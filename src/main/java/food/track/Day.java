@@ -1,5 +1,7 @@
 package food.track;
 
+import javafx.util.Pair;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,9 +18,13 @@ public class Day {
     private String desc_breakfast;
     private String desc_dinner;
     private String desc_supper;
+    private String img_breakfast;
+    private String img_dinner;
+    private String img_supper;
     private ArrayList<String> ingredients_breakfast = new ArrayList<>();
     private ArrayList<String> ingredients_dinner = new ArrayList<>();
     private ArrayList<String> ingredients_supper = new ArrayList<>();
+    private ArrayList< Pair<Integer,Integer> > tobuylist = new ArrayList<>();
     Day(int id, int d) {
         String connectionUrl = "jdbc:sqlserver://foodtrack.database.windows.net:1433;database=FoodTrack;user=notroot@foodtrack;password=adihajmaktre+69";
 
@@ -45,11 +51,26 @@ public class Day {
             dishes.next();
             breakfast = dishes.getString(2);
             desc_breakfast = dishes.getString(3);
+            img_breakfast = dishes.getString(5);
 
-            SQL = "SELECT id_ingredients FROM dishingredients WHERE id_dishes = "+rs.getString(1);
+            SQL = "SELECT id_ingredients, quantity FROM dishingredients WHERE id_dishes = "+rs.getString(1);
             stmt = con.createStatement();
             ResultSet ingredients = stmt.executeQuery(SQL);
             while (ingredients.next()) {
+                boolean guard = true;
+                Pair<Integer, Integer> para = new Pair<Integer, Integer>(ingredients.getInt(1), ingredients.getInt(2));
+                for (Pair<Integer, Integer> integerIntegerPair : tobuylist) {
+                    if(integerIntegerPair.getKey().equals(para.getKey())) {
+                        int index = tobuylist.indexOf(integerIntegerPair);
+                        tobuylist.set(index, new Pair<>(para.getKey(), integerIntegerPair.getValue()+para.getValue()));
+                        guard = false;
+                        break;
+                    }
+                }
+                if(guard) {
+                    tobuylist.add(para);
+                }
+
                 SQL = "SELECT name FROM ingredients WHERE id_ingredients = "+ingredients.getString(1);
                 stmt = con.createStatement();
                 ResultSet ingredient_names = stmt.executeQuery(SQL);
@@ -66,11 +87,26 @@ public class Day {
             dishes.next();
             dinner = dishes.getString(2);
             desc_dinner = dishes.getString(3);
+            img_dinner = dishes.getString(5);
 
-            SQL = "SELECT id_ingredients FROM dishingredients WHERE id_dishes = "+rs.getString(1);
+            SQL = "SELECT id_ingredients, quantity FROM dishingredients WHERE id_dishes = "+rs.getString(1);
             stmt = con.createStatement();
             ingredients = stmt.executeQuery(SQL);
             while (ingredients.next()) {
+                boolean guard = true;
+                Pair<Integer, Integer> para = new Pair<Integer, Integer>(ingredients.getInt(1), ingredients.getInt(2));
+                for (Pair<Integer, Integer> integerIntegerPair : tobuylist) {
+                    if(integerIntegerPair.getKey().equals(para.getKey())) {
+                        int index = tobuylist.indexOf(integerIntegerPair);
+                        tobuylist.set(index, new Pair<>(para.getKey(), integerIntegerPair.getValue()+para.getValue()));
+                        guard = false;
+                        break;
+                    }
+                }
+                if(guard) {
+                    tobuylist.add(para);
+                }
+
                 SQL = "SELECT name FROM ingredients WHERE id_ingredients = "+ingredients.getString(1);
                 stmt = con.createStatement();
                 ResultSet ingredient_names = stmt.executeQuery(SQL);
@@ -86,11 +122,26 @@ public class Day {
             dishes.next();
             supper = dishes.getString(2);
             desc_supper = dishes.getString(3);
+            img_supper = dishes.getString(5);
 
-            SQL = "SELECT id_ingredients FROM dishingredients WHERE id_dishes = "+rs.getString(1);
+            SQL = "SELECT id_ingredients, quantity FROM dishingredients WHERE id_dishes = "+rs.getString(1);
             stmt = con.createStatement();
             ingredients = stmt.executeQuery(SQL);
             while (ingredients.next()) {
+                boolean guard = true;
+                Pair<Integer, Integer> para = new Pair<Integer, Integer>(ingredients.getInt(1), ingredients.getInt(2));
+                for (Pair<Integer, Integer> integerIntegerPair : tobuylist) {
+                    if(integerIntegerPair.getKey().equals(para.getKey())) {
+                        int index = tobuylist.indexOf(integerIntegerPair);
+                        tobuylist.set(index, new Pair<>(para.getKey(), integerIntegerPair.getValue()+para.getValue()));
+                        guard = false;
+                        break;
+                    }
+                }
+                if(guard) {
+                    tobuylist.add(para);
+                }
+
                 SQL = "SELECT name FROM ingredients WHERE id_ingredients = "+ingredients.getString(1);
                 stmt = con.createStatement();
                 ResultSet ingredient_names = stmt.executeQuery(SQL);
@@ -111,6 +162,30 @@ public class Day {
             if (stmt != null) try { stmt.close(); } catch(Exception e) {}
             if (con != null) try { con.close(); } catch(Exception e) {}
         }
+    }
+
+    public String getImg_breakfast() {
+        return img_breakfast;
+    }
+
+    public void setImg_breakfast(String img_breakfast) {
+        this.img_breakfast = img_breakfast;
+    }
+
+    public String getImg_dinner() {
+        return img_dinner;
+    }
+
+    public void setImg_dinner(String img_dinner) {
+        this.img_dinner = img_dinner;
+    }
+
+    public String getImg_supper() {
+        return img_supper;
+    }
+
+    public void setImg_supper(String img_supper) {
+        this.img_supper = img_supper;
     }
 
     public String getBreakfast() {
@@ -194,9 +269,13 @@ public class Day {
                 ", desc_breakfast='" + desc_breakfast + '\'' +
                 ", desc_dinner='" + desc_dinner + '\'' +
                 ", desc_supper='" + desc_supper + '\'' +
+                ", img_breakfast='" + img_breakfast + '\'' +
+                ", img_dinner='" + img_dinner + '\'' +
+                ", img_supper='" + img_supper + '\'' +
                 ", ingredients_breakfast=" + ingredients_breakfast +
                 ", ingredients_dinner=" + ingredients_dinner +
                 ", ingredients_supper=" + ingredients_supper +
+                ", tobuylist=" + tobuylist +
                 '}';
     }
 }
