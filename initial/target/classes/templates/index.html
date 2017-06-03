@@ -5,6 +5,8 @@
         @import url("./materialize.css");
         @import url("./main.css");
     </style>
+    <link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
+          rel='stylesheet' type='text/css' />
 
 </head>
     
@@ -14,18 +16,16 @@
         <div class="nav-wrapper">
           <a href="#" class="brand-logo">FoodTrack</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sing in!</a></li>
-            
-            <li><a href="sass.html">Sing up!</a></li>
+            <!--<li><a href="sass.html">Sing in!</a></li>
+            -->
+            <li><a th:href="registration.html">Sing up!</a></li>
           </ul>
         </div>
     </nav>
     
     <div id="index-banner" class="paralax-container">
         <div class="section no-pad-bot">
-            <!--<div class="container">
-                <br>
-                <br>
+            <div class="container">
                 <h1 class="header center white-text text-lighten-1" style="text-size: 3em">FoodTrack</h1>
                 
                 <div class="row-center" style="text-align: center" >
@@ -33,12 +33,12 @@
                     <h5 class="header col s12 light" style="color: white">Instead of getting fit tommorow, get fit today!</h5>
                 </div>
                 
-            </div>-->
+            </div>
         </div>
 
         <div class="parallax">
 
-           <img style="display: block; transform: translate3d(-50%, 346px, 0px);" th:src="@{ ./images/bg.jpg }"/>
+           <img style="display: block; transform: translate3d(-50%, 0px, 0px);" th:src="@{ ./images/bg.jpg }"/>
             <div class="mask"></div>
         </div>
     </div>
@@ -49,7 +49,7 @@
         <div class="card-panel grey lighten-5 z-depth-1">
           <div class="row valign-wrapper">
             <div class="col s1">
-              <!--<img src="https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/13061998_1229403873751441_3532066964117887835_n.jpg?oh=eb48618212a4df99e178657264fb325f&oe=59ABBBDE" alt="happy_customer" class="circle responsive-img">-->
+              <img th:src="@{ ./images/adi.jpg }" alt="happy_customer" class="circle responsive-img"/>
             </div>
             <div class="col s12">
               <span class="black-text">
@@ -64,6 +64,7 @@
         <div class="card-panel grey lighten-5 z-depth-1">
           <div class="row valign-wrapper">
             <div class="col s1">
+                <img th:src="@{ ./images/maku.jpg }"  alt="happy_customer" class="circle responsive-img"/>
             </div>
             <div class="col s12">
               <span class="black-text">
@@ -78,6 +79,7 @@
         <div class="card-panel grey lighten-5 z-depth-1">
           <div class="row valign-wrapper">
             <div class="col s1">
+                <img th:src="@{ ./images/hajduk.jpg }"  alt="happy_customer" class="circle responsive-img"/>
             </div>
             <div class="col s12">
               <span class="black-text">
@@ -132,10 +134,10 @@
                 
             </div>
             
-            <!--<div class="row" style="padding-left: 15%; padding-right: 15%; padding-top: 30px">
+            <div class="row" style="padding-left: 15%; padding-right: 15%; padding-top: 30px">
                 <h4 class="center black-text" style="font-weight: bold">Curious?</h4>
                 <h5 class="center black-text" style=" font-weight: bold">Join now!</h5>
-                <br>
+
                 <p class="light center" style="text-size: 2.5em;  font-weight: bold">
                     Dont wait, try our service now! It's free so you can't lose anything and we promise you that you will only gain!
                 </p>
@@ -143,7 +145,7 @@
                 <a class="waves-effect waves-light btn center" style="background-color: #0ac920; font-size: 1.25em"><i class="material-icons right">done</i>Join now!</a>
                 </div>
                 
-            </div>-->
+            </div>
         </div>
 
     

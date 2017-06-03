@@ -1,0 +1,169 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <title>FoodTrack - Track your fit lifestyle in the new way!</title>
+    <style type="text/css" media="all">
+        @import url("./materialize.css");
+        @import url("./main.css");
+    </style>
+    <link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
+          rel='stylesheet' type='text/css'/>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">FoodTrack</a>
+    </div>
+</nav>
+
+
+<div class="parallax">
+    <img style="display: block; transform: translate3d(-50%, 0px, 0px);" th:src="@{ ./images/bg.jpg }"/>
+    <div class="mask"></div>
+</div>
+
+<div class="container">
+    <p></p>
+    <h1 class="header center white-text text-lighten-1" style="text-size: 3em">Registration Panel</h1>
+</div>
+
+<form:form action="register" method="post" commandName="userForm">
+    <div class="row-center" style="text-align: center">
+        <h5 class="header col s12 light" style="color: white">Email you want to log on portal:</h5>
+    </div>
+
+    <div class="container">
+        <div class="grey lighten-5 z-depth-1">
+            <div class="row center">
+                <input type="text" path="email" style="width: 50%"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-center" style="text-align: center">
+
+        <h5 class="header col s12 light" style="color: white">The nick we are going to refer to you:</h5>
+    </div>
+
+    <div class="container">
+        <div class="grey lighten-5 z-depth-1">
+            <div class="row center">
+                <input type="text" path="nick" style="width: 50%"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-center" style="text-align: center">
+
+        <h5 class="header col s12 light" style="color: white">Your password:</h5>
+    </div>
+
+    <div class="container">
+        <div class="grey lighten-5 z-depth-1">
+            <div class="row center">
+                <input type="text" path="password" style="width: 50%"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-center" style="text-align: center">
+
+        <h5 class="header col s12 light" style="color: white">Repeat password:</h5>
+    </div>
+
+    <div class="container">
+        <div class="grey lighten-5 z-depth-1">
+            <div class="row center">
+                <input type="text" path="password_repeat" style="width: 50%"/>
+            </div>
+        </div>
+    </div>
+</form:form>
+<div class="center">
+
+    <a class="waves-effect waves-light btn">submit!</a>
+    <p></p>
+</div>
+
+
+<div class="section" style="background-color: white">
+    <div class="row" style="padding-left: 15%; padding-right: 15%; border-bottom: solid 3px #0ac920">
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <h2 class="center black-text">
+                    <i class="material-icons">language</i>
+                </h2>
+                <h5 style="text-align: center">Available worldwide</h5>
+                <p class="light">
+                    No matter where you are currently, our app will always be your companion. There is no borders we
+                    cannot cross.
+                </p>
+            </div>
+        </div>
+
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <h2 class="center black-text">
+                    <i class="material-icons">thumb_up</i>
+                </h2>
+                <h5 style="text-align: center">We will always support You!</h5>
+                <p class="light">
+                    You have problems with your diet? You lost your motivation? There is no more fun with eating? This
+                    kind of problems is past with us. We will track all of your progress, we will motivate You and award
+                    You progress with acheivments for scoring great!
+                </p>
+            </div>
+        </div>
+
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <h2 class="center black-text">
+                    <i class="material-icons">shopping_basket</i>
+                </h2>
+                <h5 style="text-align: center">We will not only suggest your meals, we will make tyour shop list for
+                    you!</h5>
+                <p class="light">
+                    Do you remember all the times you you was tired of getting all the ingridients on your list? Now you
+                    can't bother about this anymore, we will generate the weekly list for you without any problems.
+                    Pleasure is on our side.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" style="padding-left: 15%; padding-right: 15%; padding-top: 30px">
+        <h4 class="center black-text" style="font-weight: bold">Curious?</h4>
+        <h5 class="center black-text" style=" font-weight: bold">Join now!</h5>
+
+        <p class="light center" style="text-size: 2.5em;  font-weight: bold">
+            Dont wait, try our service now! It's free so you can't lose anything and we promise you that you will only
+            gain!
+        </p>
+        <div class="center">
+            <a class="waves-effect waves-light btn center" style="background-color: #0ac920; font-size: 1.25em"><i
+                    class="material-icons right">done</i>Join now!</a>
+        </div>
+
+    </div>
+</div>
+
+
+<footer class="page-footer">
+    <div class="container">
+
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Intercontinental Programmers
+            <a class="grey-text text-lighten-4 right" href="https://github.com/Intercontinental-Programmers/Hackaton">Find
+                us on Github!</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+
+</html>
