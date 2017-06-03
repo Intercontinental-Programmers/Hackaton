@@ -7,6 +7,7 @@
     </style>
     <link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
           rel='stylesheet' type='text/css' />
+    <script th:src="@{./switchScript.js}"/>
 
 </head>
 <body>
@@ -45,7 +46,7 @@
         <div class="row">
             <div class="card horizontal">
                 <div class="card-image">
-                    <img th:src="@{./images/breakfast.jpg}" alt="img" style="height: 150px"></img>
+                    <img th:src="@{./images/breakfast.jpg}" alt="img" style="height: 150px; width: 150px"></img>
                 </div>
                 <div class="card-stacked" style="margin-left: 10px">
                     <span class="card-title">Breakfast</span>
@@ -54,8 +55,8 @@
                     </div>
                     <div class="card-action">
                         <a href="/receipt"> See the receipt!</a>
-                        <a><i class="material-icons right" >thumb_down</i></a>
-                        <a><i class="material-icons right" >thumb_up</i></a>
+                        <a><i class="material-icons right" id="0" onclick="changeHand(this.id)">thumb_down</i></a>
+                        <a><i class="material-icons right" id="1" onclick="changeHand(this.id)">thumb_up</i></a>
                     </div>
                 </div>
             </div>
@@ -64,7 +65,7 @@
         <div class="row">
             <div class="card horizontal">
                 <div class="card-image">
-                    <img th:src="@{./images/dinner.jpg}" alt="img" style="height: 150px"></img>
+                    <img th:src="@{./images/dinner.jpg}" alt="img" style="height: 150px; width: 150px"></img>
                 </div>
                 <div class="card-stacked" style="margin-left: 10px">
                     <span class="card-title">Dinner</span>
@@ -73,8 +74,8 @@
                     </div>
                     <div class="card-action">
                         <a > See the receipt!</a>
-                        <a><i class="material-icons right" >thumb_down</i></a>
-                        <a><i class="material-icons right" >thumb_up</i></a>
+                        <a><i class="material-icons right" id="2" onclick="changeHand(this.id)">thumb_down</i></a>
+                        <a><i class="material-icons right" id="3" onclick="changeHand(this.id)">thumb_up</i></a>
                     </div>
                 </div>
             </div>
@@ -83,7 +84,7 @@
         <div class="row">
             <div class="card horizontal">
                 <div class="card-image">
-                    <img th:src="@{./images/supper.jpg}" alt="img" style="height: 150px"></img>
+                    <img th:src="@{./images/supper.jpg}" alt="img" style="height: 150px; width: 150px"></img>
                 </div>
                 <div class="card-stacked" style="margin-left: 10px">
                     <span class="card-title">Supper</span>
@@ -92,8 +93,8 @@
                     </div>
                     <div class="card-action">
                         <a> See the receipt!</a>
-                        <a><i class="material-icons right" >thumb_down</i></a>
-                        <a><i class="material-icons right" >thumb_up</i></a>
+                        <a><i class="material-icons right" id="4" onclick="changeHand(this.id)">thumb_down</i></a>
+                        <a><i class="material-icons right" id="5" onclick="changeHand(this.id)">thumb_up</i></a>
                     </div>
                 </div>
             </div>
@@ -105,8 +106,7 @@
             <img th:src="@{./images/user.jpg}" alt="user" class="circle" style="height: 100px; margin-left: 10px; margin-top: 10px"></img>
             <span class="card-title">Welcom back, <span th:text="${nickname}"/>!</span>
             <div class="card-content" style="padding-bottom: 50px">
-                <h5 class="left">Your data:</h5>
-                <br></br>
+                <h5 class="center" style="font-weight: bold; border-bottom: solid #0ac920 3px; padding-bottom: 10px">Your data:</h5>
                 <br></br>
                 <h5><span class="left">Age:</span><span class="right"><p th:text="${age}"/></span></h5>
                 <br></br>
