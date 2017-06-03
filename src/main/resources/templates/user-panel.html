@@ -58,9 +58,8 @@
                     <img th:src="@{./images/breakfast.jpg}" alt="img" style="height: 150px; width: 150px"></img>
                 </div>
                 <div class="card-stacked" style="margin-left: 10px">
-                    <span class="card-title">Breakfast</span>
+                    <span class="card-title"><p th:text="${breakfast}"/></span>
                     <div class="card-contene">
-                        <p>Scrambled eggs is always the best idea for nutrisious and fast breakfast!</p>
                     </div>
                     <div class="card-action">
                         <a href="/receipt?type=breakfast"> See the receipt!</a>
@@ -79,9 +78,8 @@
                     <img th:src="@{./images/dinner.jpg}" alt="img" style="height: 150px; width: 150px"></img>
                 </div>
                 <div class="card-stacked" style="margin-left: 10px">
-                    <span class="card-title">Dinner</span>
+                    <span class="card-title"><p th:text="${dinner}"/></span>
                     <div class="card-contene">
-                        <p>Chicken salad is gonna make everyone happy, so don't waist your time, do it yourself </p>
                     </div>
                     <div class="card-action">
                         <a href="/receipt?type=dinner"> See the receipt!</a>
@@ -98,9 +96,8 @@
                     <img th:src="@{./images/supper.jpg}" alt="img" style="height: 150px; width: 150px"></img>
                 </div>
                 <div class="card-stacked" style="margin-left: 10px">
-                    <span class="card-title">Supper</span>
+                    <span class="card-title"><p th:text="${supper}"/></span>
                     <div class="card-contene">
-                        <p>Oat straw? With bananas? Could have this been better?</p>
                     </div>
                     <div class="card-action">
                         <a href="/receipt?type=dinner"> See the receipt!</a>
@@ -114,7 +111,7 @@
 
     <div class="col s6 right" style="margin-top: 25px; margin-right: 10px">
         <div class="card darken-1">
-            <img th:src="@{./images/user.jpg}" alt="user" class="circle"
+            <img th:src="${photo}" alt="user" class="circle"
                  style="height: 100px; margin-left: 10px; margin-top: 10px"></img>
             <span class="card-title">Welcom back, <span th:text="${nickname}"/>!</span>
             <div class="card-content" style="padding-bottom: 50px">
@@ -123,7 +120,7 @@
                 <br></br>
                 <h5><span class="left">Age:</span><span class="right"><p th:text="${age}"/></span></h5>
                 <br></br>
-                <h5><span class="left">Height:</span><span class="right"><span th:text="${height}"/>cm</span></h5>
+                <h5><span class="left">Height:</span><span class="right"><span th:text="${height}"/>m</span></h5>
                 <br></br>
                 <h5><span class="left">Weight (Compared to last week):</span><span class="right"><span
                         th:text="${weight}"/>kg <span th:style="${color}">(<span th:text="${weightProgress}"/>kg)</span></span>

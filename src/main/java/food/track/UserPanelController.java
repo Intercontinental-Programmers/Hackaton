@@ -9,19 +9,47 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class UserPanelController {
+    public static User currentUser;
+    public static Day currentDay;
 
     @RequestMapping("/userpanel")
     public ModelAndView showUserPanel(){
         if(true){
-            System.out.println("Login clicked");
-            String weightProgress = "+0.75";
-            String nick = "Adimus11";
-            String age = "21";
-            String weight = "82";
-            String activity = "Weight loss";
-            String height = "183";
+
+            if(LoginController.curUser){
+                currentUser = LoginController.usr1;
+                currentDay = LoginController.day1;
+            }
+            else{
+                currentUser = LoginController.usr2;
+                currentDay = LoginController.day2;
+            }
+
+            String weightProgress = currentUser.getDelta();
+            String nick = currentUser.getNick();
+            String age = currentUser.getAge();
+            String weight = currentUser.getWeight();
+            String activity = "";
+            String height = currentUser.getHeight();
             String color = "";
-            int dailyCalories = 2000;
+            int dailyCalories = 0;
+            String photoPath;
+
+            String breakfastName = currentDay.getBreakfast();
+            String dinnerName = currentDay.getDinner();
+            String supperName = currentDay.getSupper();
+
+            if(currentUser.getNick().equals("Adi")){
+                activity = "Lose weight";
+                dailyCalories = 1900;
+                photoPath = "./images/adi.jpg";
+
+            }
+            else{
+                activity = "Gain muscle mass";
+                photoPath = "./images/maku.jpg";
+                dailyCalories = 2230;
+            }
 
             if(weightProgress.startsWith("-")){
                 color = "color: green";
@@ -32,6 +60,10 @@ public class UserPanelController {
 
             ModelAndView newMaV = new ModelAndView("user-panel");
 
+            newMaV.addObject("dinner", dinnerName);
+            newMaV.addObject("breakfast", breakfastName);
+            newMaV.addObject("supper", supperName);
+
             newMaV.addObject("nickname", nick);
             newMaV.addObject("age", age);
             newMaV.addObject("weight", weight);
@@ -40,6 +72,7 @@ public class UserPanelController {
             newMaV.addObject("weightProgress", weightProgress);
             newMaV.addObject("activity", activity);
             newMaV.addObject("color", color);
+            newMaV.addObject("photo", photoPath);
 
             return newMaV;
 
