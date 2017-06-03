@@ -25,6 +25,7 @@ public class Day {
     private ArrayList<String> ingredients_dinner = new ArrayList<>();
     private ArrayList<String> ingredients_supper = new ArrayList<>();
     private ArrayList< Pair<Integer,Integer> > tobuylist = new ArrayList<>();
+
     Day(int id, int d) {
         String connectionUrl = "jdbc:sqlserver://foodtrack.database.windows.net:1433;database=FoodTrack;user=notroot@foodtrack;password=adihajmaktre+69";
 
@@ -187,6 +188,36 @@ public class Day {
     public void setImg_supper(String img_supper) {
         this.img_supper = img_supper;
     }
+    public String getNameByIndex(int id){
+        if (id == 1)  return "Ryz";
+        if (id == 2)  return "Mieso z kurczaka";
+        if (id == 3)  return "Marchew";
+        if (id == 4)  return "Pomidor";
+        if (id == 5)  return "Cebula";
+        if (id == 6)  return "Tofu";
+        if (id == 7)  return "Jajka";
+        if (id == 8)  return "Chleb";
+        if (id == 9)  return "Platki owsiane";
+        if (id == 10)  return "Mleko";
+        if (id == 11)  return "Jogurt";
+        if (id == 12)  return "Ogorek zielony";
+        if (id == 13)  return "Ser bialy";
+        if (id == 14)  return "Ziemniaki";
+        if (id == 15)  return "Papryka";
+        if (id == 16)  return "Smietana 18%";
+        if (id == 17)  return "Makaron";
+        if (id == 18)  return "Kasza gryczana";
+        if (id == 19)  return "Wolowina";
+        if (id == 20)  return "Mieso z indyka";
+        if (id == 21)  return "Mieso mielone z indyka";
+        if (id == 22)  return "Bulion z rosolu";
+        if (id == 23)  return "Wloszczyzna";
+        if (id == 24)  return "Ser";
+        else return "";
+
+
+
+    }
 
     public String getBreakfast() {
         return breakfast;
@@ -260,8 +291,21 @@ public class Day {
         this.ingredients_supper = ingredients_supper;
     }
 
+    public ArrayList<Pair<String, Integer>> getTobuylist() {
+        ArrayList< Pair<String, Integer> > result = new ArrayList<>();
+        for (int i = 0; i < tobuylist.size(); i++) {
+            result.add(new Pair<String, Integer>(getNameByIndex(tobuylist.get(i).getKey()), tobuylist.get(i).getValue()));
+        }
+        return result;
+    }
+
+    public void setTobuylist(ArrayList<Pair<Integer, Integer>> tobuylist) {
+        this.tobuylist = tobuylist;
+    }
+
     @Override
     public String toString() {
+        System.out.print(getTobuylist());
         return "Day{" +
                 "breakfast='" + breakfast + '\'' +
                 ", dinner='" + dinner + '\'' +
