@@ -1,5 +1,7 @@
 package food.track;
 
+import javafx.util.Pair;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -22,6 +24,7 @@ public class Day {
     private ArrayList<String> ingredients_breakfast = new ArrayList<>();
     private ArrayList<String> ingredients_dinner = new ArrayList<>();
     private ArrayList<String> ingredients_supper = new ArrayList<>();
+    private ArrayList< Pair<Integer,Integer> > tobuylist = new ArrayList<>();
     Day(int id, int d) {
         String connectionUrl = "jdbc:sqlserver://foodtrack.database.windows.net:1433;database=FoodTrack;user=notroot@foodtrack;password=adihajmaktre+69";
 
@@ -50,10 +53,24 @@ public class Day {
             desc_breakfast = dishes.getString(3);
             img_breakfast = dishes.getString(5);
 
-            SQL = "SELECT id_ingredients FROM dishingredients WHERE id_dishes = "+rs.getString(1);
+            SQL = "SELECT id_ingredients, quantity FROM dishingredients WHERE id_dishes = "+rs.getString(1);
             stmt = con.createStatement();
             ResultSet ingredients = stmt.executeQuery(SQL);
             while (ingredients.next()) {
+                boolean guard = true;
+                Pair<Integer, Integer> para = new Pair<Integer, Integer>(ingredients.getInt(1), ingredients.getInt(2));
+                for (Pair<Integer, Integer> integerIntegerPair : tobuylist) {
+                    if(integerIntegerPair.getKey().equals(para.getKey())) {
+                        int index = tobuylist.indexOf(integerIntegerPair);
+                        tobuylist.set(index, new Pair<>(para.getKey(), integerIntegerPair.getValue()+para.getValue()));
+                        guard = false;
+                        break;
+                    }
+                }
+                if(guard) {
+                    tobuylist.add(para);
+                }
+
                 SQL = "SELECT name FROM ingredients WHERE id_ingredients = "+ingredients.getString(1);
                 stmt = con.createStatement();
                 ResultSet ingredient_names = stmt.executeQuery(SQL);
@@ -72,10 +89,24 @@ public class Day {
             desc_dinner = dishes.getString(3);
             img_dinner = dishes.getString(5);
 
-            SQL = "SELECT id_ingredients FROM dishingredients WHERE id_dishes = "+rs.getString(1);
+            SQL = "SELECT id_ingredients, quantity FROM dishingredients WHERE id_dishes = "+rs.getString(1);
             stmt = con.createStatement();
             ingredients = stmt.executeQuery(SQL);
             while (ingredients.next()) {
+                boolean guard = true;
+                Pair<Integer, Integer> para = new Pair<Integer, Integer>(ingredients.getInt(1), ingredients.getInt(2));
+                for (Pair<Integer, Integer> integerIntegerPair : tobuylist) {
+                    if(integerIntegerPair.getKey().equals(para.getKey())) {
+                        int index = tobuylist.indexOf(integerIntegerPair);
+                        tobuylist.set(index, new Pair<>(para.getKey(), integerIntegerPair.getValue()+para.getValue()));
+                        guard = false;
+                        break;
+                    }
+                }
+                if(guard) {
+                    tobuylist.add(para);
+                }
+
                 SQL = "SELECT name FROM ingredients WHERE id_ingredients = "+ingredients.getString(1);
                 stmt = con.createStatement();
                 ResultSet ingredient_names = stmt.executeQuery(SQL);
@@ -93,10 +124,24 @@ public class Day {
             desc_supper = dishes.getString(3);
             img_supper = dishes.getString(5);
 
-            SQL = "SELECT id_ingredients FROM dishingredients WHERE id_dishes = "+rs.getString(1);
+            SQL = "SELECT id_ingredients, quantity FROM dishingredients WHERE id_dishes = "+rs.getString(1);
             stmt = con.createStatement();
             ingredients = stmt.executeQuery(SQL);
             while (ingredients.next()) {
+                boolean guard = true;
+                Pair<Integer, Integer> para = new Pair<Integer, Integer>(ingredients.getInt(1), ingredients.getInt(2));
+                for (Pair<Integer, Integer> integerIntegerPair : tobuylist) {
+                    if(integerIntegerPair.getKey().equals(para.getKey())) {
+                        int index = tobuylist.indexOf(integerIntegerPair);
+                        tobuylist.set(index, new Pair<>(para.getKey(), integerIntegerPair.getValue()+para.getValue()));
+                        guard = false;
+                        break;
+                    }
+                }
+                if(guard) {
+                    tobuylist.add(para);
+                }
+
                 SQL = "SELECT name FROM ingredients WHERE id_ingredients = "+ingredients.getString(1);
                 stmt = con.createStatement();
                 ResultSet ingredient_names = stmt.executeQuery(SQL);
@@ -230,6 +275,7 @@ public class Day {
                 ", ingredients_breakfast=" + ingredients_breakfast +
                 ", ingredients_dinner=" + ingredients_dinner +
                 ", ingredients_supper=" + ingredients_supper +
+                ", tobuylist=" + tobuylist +
                 '}';
     }
 }
