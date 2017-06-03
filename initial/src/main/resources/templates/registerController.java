@@ -37,7 +37,6 @@ public class RegisterController {
          
         // for testing purpose:
         System.out.println("nick: " + user.getNick());
-        System.out.println("login: " + user.getLogin());
         System.out.println("password: " + user.getPassword());
         System.out.println("email: " + user.getEmail());
 

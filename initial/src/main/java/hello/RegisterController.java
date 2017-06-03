@@ -1,10 +1,9 @@
-package net.codejava.spring.controller;
- 
+package hello;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
  
-import net.codejava.spring.model.User;
+//import net.codejava.spring.model.User;
  
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

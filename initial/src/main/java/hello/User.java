@@ -1,5 +1,4 @@
-package net.codejava.spring.model;
- 
+package hello;
 import java.util.Date;
  
 public class User {
@@ -7,7 +6,8 @@ public class User {
     private String login;
     private String password;
     private String email;
-    
+
+    public User () {}
     public String getNick(){
     	return nick;
     }

@@ -1,11 +1,10 @@
-
+package hello;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
-import com.mkyong.customer.dao.CustomerDAO;
-import com.mkyong.customer.model.Customer;
+
 
 public class JdbcUserDAO implements UserDAO
 {
@@ -43,7 +42,7 @@ public class JdbcUserDAO implements UserDAO
 		}
 	}
 
-	public User findByUserEmail(String email){
+	/*public User findByUserEmail(String email){
 
 		String sql = "SELECT * FROM users WHERE email = ?";
 
@@ -58,12 +57,12 @@ public class JdbcUserDAO implements UserDAO
 			if (rs.next()) {
 				user = new User(
 					rs.getInt("id_users"),
-					rs.getString("email"),
-				);
+					rs.getString("email")
+
 			}
 			rs.close();
 			ps.close();
-			return User;
+			return user;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
@@ -73,5 +72,5 @@ public class JdbcUserDAO implements UserDAO
 				} catch (SQLException e) {}
 			}
 		}
-	}
+	}*/
 }
