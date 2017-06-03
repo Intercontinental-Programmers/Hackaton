@@ -12,11 +12,11 @@
 <body>
 <nav>
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo">FoodTrack</a>
+        <a href="/" class="brand-logo">FoodTrack</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="active"><a href="#">Your daily plan</a></li>
             <li><a href="#">Account settings</a></li>
-            <li><a href="#">Log out!</a></li>
+            <li><a href="/">Log out!</a></li>
         </ul>
     </div>
 </nav>
@@ -53,7 +53,7 @@
                         <p>Scrambled eggs is always the best idea for nutrisious and fast breakfast!</p>
                     </div>
                     <div class="card-action">
-                        <a> See the receipt!</a>
+                        <a href="/receipt"> See the receipt!</a>
                         <a><i class="material-icons right" >thumb_down</i></a>
                         <a><i class="material-icons right" >thumb_up</i></a>
                     </div>
@@ -103,18 +103,18 @@
     <div class="col s6 right" style="margin-top: 25px; margin-right: 10px">
         <div class="card darken-1">
             <img th:src="@{./images/user.jpg}" alt="user" class="circle" style="height: 100px; margin-left: 10px; margin-top: 10px"></img>
-            <span class="card-title">Welcom back, ${nickname}!</span>
+            <span class="card-title">Welcom back, <span th:text="${nickname}"/>!</span>
             <div class="card-content" style="padding-bottom: 50px">
                 <h5 class="left">Your data:</h5>
                 <br></br>
                 <br></br>
-                <h5><span class="left">Age:</span><span class="right"><p th:text="${age}"/>.</span></h5>
+                <h5><span class="left">Age:</span><span class="right"><p th:text="${age}"/></span></h5>
                 <br></br>
-                <h5><span class="left">Height:</span><span class="right">${height}</span></h5>
+                <h5><span class="left">Height:</span><span class="right"><span th:text="${height}"/>cm</span></h5>
                 <br></br>
-                <h5><span class="left">Weight (Compared to last week):</span><span class="right"><p th:text="${weight}kg"/>. <span style="color: green"><p th:text="'(' + '${weightProgress}' +  'kg)'"/></span></span></h5>
+                <h5><span class="left">Weight (Compared to last week):</span><span class="right"><span th:text="${weight}"/>kg <span th:style="${color}">(<span th:text="${weightProgress}"/>kg)</span></span></h5>
                 <br></br>
-                <h5><span class="left">Your daily calories limit:</span><span class="right">${dailyCal} kcal</span></h5>
+                <h5><span class="left">Your daily calories limit:</span><span class="right"><span th:text="${dailyCal}"/>kcal</span></h5>
                 <br></br>
                 <h5><span class="left">Your diet goal:</span><span class="right" style="color: green" ><p th:text="${activity}"/></span></h5>
             </div>

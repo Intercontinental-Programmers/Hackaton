@@ -14,13 +14,21 @@ public class UserPanelController {
     public ModelAndView showUserPanel(){
         if(true){
             System.out.println("Login clicked");
-            String weightProgress = "(+0.75)";
+            String weightProgress = "+0.75";
             String nick = "Adimus11";
             String age = "21";
             String weight = "82";
             String activity = "Weight loss";
             String height = "183";
+            String color = "";
             int dailyCalories = 2000;
+
+            if(weightProgress.startsWith("-")){
+                color = "color: green";
+            }
+            else{
+                color = "color: red";
+            }
 
             ModelAndView newMaV = new ModelAndView("user-panel");
 
@@ -31,6 +39,7 @@ public class UserPanelController {
             newMaV.addObject("dailyCal", Integer.toString(dailyCalories));
             newMaV.addObject("weightProgress", weightProgress);
             newMaV.addObject("activity", activity);
+            newMaV.addObject("color", color);
 
             return newMaV;
 
