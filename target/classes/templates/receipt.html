@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>FoodTrack - Track your fit lifestyle in the new way!</title>
+    <style type="text/css" media="all">
+        @import url(".//materialize.css");
+        @import url("./main.css");
+    </style>
+    <link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
+          rel='stylesheet' type='text/css' />
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">FoodTrack</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="javascript:history.back()"><i class="material-icons left">fast_rewind</i>Back</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="index-banner" class="paralax-container">
+    <div class="section no-pad-bot">
+        <div class="container" style="padding-top: 40px">
+
+            <h1 class="header center white-text text-lighten-1" style="text-size: 3em">Scramble Eggs</h1>
+
+            <div class="row-center" style="text-align: center; padding-bottom: 100px" >
+                <h5 class="header col s12 light" style="color: white">Here you can find your receipe!</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax">
+        <img style="display: block; ; transform: translate3d(-50%, -100px, 0px)" alt="bg" th:src="@{ ./images/breakfast.jpg }"></img>
+        <div class="mask"></div>
+    </div>
+</div>
+
+<div class="row" style="background-color: white; margin: 0px; padding-left: 75px">
+        <div class="container" style="padding-top: 25px">
+        <h3 style="margin-top: 75px">Ingridients:</h3>
+        <ul style="font-weight: bold">
+            <li>4 Eggs</li>
+            <lsi>Kind of salt</lsi>
+            <li>Kind of peper</li>
+            <li>A few drops of oil</li>
+        </ul>
+        </div>
+
+    <div class="container">
+    <h3 style="margin-top: 0px; padding-bottom: 30px">Way of preparation:</h3>
+    <ol style="font-weight: bold">
+        <li>Heat up the pan</li>
+        <li>Sprinkle oil on pan</li>
+        <li>Crack eggs to the pan</li>
+        <li>Add kind of salt and peper</li>
+        <li>Mix eggs</li>
+        <li>Wait until eggs will be ready</li>
+        <li>Enjoy your meal ;---D</li>
+    </ol>
+    </div>
+</div>
+
+
+<footer class="page-footer">
+    <div class="container">
+
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Intercontinental Programmers
+            <a class="grey-text text-lighten-4 right" href="https://github.com/Intercontinental-Programmers/Hackaton">Find us on Github!</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

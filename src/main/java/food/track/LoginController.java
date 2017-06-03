@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/")
-public class RegistrationController {
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+public class LoginController {
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String redirect() {
-        System.out.println("im loading registration");
-        return "registration";
+        System.out.println("im logging in");
+        return "login";
     }
 }
