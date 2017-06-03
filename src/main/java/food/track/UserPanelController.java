@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserPanelController {
     public static User currentUser;
     public static Day currentDay;
+    public static String photoPath;
 
     @RequestMapping("/userpanel")
     public ModelAndView showUserPanel(){
@@ -33,11 +34,14 @@ public class UserPanelController {
             String height = currentUser.getHeight();
             String color = "";
             int dailyCalories = 0;
-            String photoPath;
 
             String breakfastName = currentDay.getBreakfast();
             String dinnerName = currentDay.getDinner();
             String supperName = currentDay.getSupper();
+
+            String breakfastImg = currentDay.getImg_breakfast();
+            String dinnerImg = currentDay.getImg_dinner();
+            String supperImg = currentDay.getImg_supper();
 
             if(currentUser.getNick().equals("Adi")){
                 activity = "Lose weight";
@@ -63,6 +67,10 @@ public class UserPanelController {
             newMaV.addObject("dinner", dinnerName);
             newMaV.addObject("breakfast", breakfastName);
             newMaV.addObject("supper", supperName);
+
+            newMaV.addObject("dinnerImg", dinnerImg);
+            newMaV.addObject("breakfastImg", breakfastImg);
+            newMaV.addObject("supperImg", supperImg);
 
             newMaV.addObject("nickname", nick);
             newMaV.addObject("age", age);

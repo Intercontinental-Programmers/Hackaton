@@ -7,9 +7,18 @@
     </style>
     <link th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
           rel='stylesheet' type='text/css' />
+    <script th:src="@{./ulClear.js}"/>
+    <script th:src="@{./olClear.js}"/>
+
+    <script>
+        $('ul li').filter(function() {return $(this).text()​​​​​​​ == '';}).remove();​
+    </script>
+    <script>
+        $('ol li').filter(function() {return $(this).text()​​​​​​​ == '';}).remove();​
+    </script>
 </head>
 
-<body>
+<body onload="ulCLear(); olCLear();">
 <nav>
     <div class="nav-wrapper">
         <a href="/" class="brand-logo">FoodTrack</a>
@@ -23,7 +32,7 @@
     <div class="section no-pad-bot">
         <div class="container" style="padding-top: 40px">
 
-            <h1 class="header center white-text text-lighten-1" style="text-size: 3em">Scramble Eggs</h1>
+            <h1 class="header center white-text text-lighten-1" style="text-size: 3em"><span th:text="${title}"/>.</h1>
 
             <div class="row-center" style="text-align: center; padding-bottom: 100px" >
                 <h5 class="header col s12 light" style="color: white">Here you can find your receipe!</h5>
@@ -32,7 +41,7 @@
     </div>
 
     <div class="parallax">
-        <img style="display: block; ; transform: translate3d(-50%, -100px, 0px)" alt="bg" th:src="@{ ./images/breakfast.jpg }"></img>
+        <img style="display: block; ; transform: translate3d(-50%, 0px, 0px)" alt="bg" th:src="${image}"></img>
         <div class="mask"></div>
     </div>
 </div>
@@ -41,23 +50,38 @@
         <div class="container" style="padding-top: 25px">
         <h3 style="margin-top: 75px">Ingridients:</h3>
         <ul style="font-weight: bold; padding-left: 25px">
-            <li><i class="material-icons left tiny">label</i>4 Eggs</li>
-            <li><i class="material-icons left tiny">label</i>Kind of salt</li>
-            <li><i class="material-icons left tiny">label</i>Kind of peper</li>
-            <li><i class="material-icons left tiny">label</i>A few drops of oil</li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in1}" /></li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in2}" /></li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in3}" /></li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in4}" /></li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in5}" /></li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in6}" /></li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in7}" /></li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in8}" /></li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in9}" /></li>
+            <li><i class="material-icons left tiny">label</i><span th:text="${in10}" /></li>
+
+
+
+
+
+
         </ul>
         </div>
 
     <div class="container" style="padding-top: 35px">
     <h3 style="margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px">Way of preparation:</h3>
     <ol style="font-weight: bold; margin-bottom: 50px">
-        <li>Heat up the pan</li>
-        <li>Sprinkle oil on pan</li>
-        <li>Crack eggs to the pan</li>
-        <li>Add kind of salt and peper</li>
-        <li>Mix eggs</li>
-        <li>Wait until eggs will be ready</li>
-        <li>Enjoy your meal ;---D</li>
+        <li><span th:text="${s1}" /></li>
+        <li><span th:text="${s2}" /></li>
+        <li><span th:text="${s3}" /></li>
+        <li><span th:text="${s4}" /></li>
+        <li><span th:text="${s5}" /></li>
+        <li><span th:text="${s6}" /></li>
+        <li><span th:text="${s7}" /></li>
+        <li><span th:text="${s8}" /></li>
+        <li><span th:text="${s9}" /></li>
+        <li><span th:text="${s10}" /></li>
     </ol>
     </div>
 </div>

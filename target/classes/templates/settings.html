@@ -15,8 +15,8 @@
     <div class="nav-wrapper">
         <a href="/" class="brand-logo">FoodTrack</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active"><a href="userpanel">Your daily plan</a></li>
-
+            <li><a href="userpanel">Your daily plan</a></li>
+            <li class="active"><a href="#">Account settings</a></li>
             <li><a href="/">Log out!</a></li>
         </ul>
     </div>
@@ -35,7 +35,7 @@
     </div>
 
     <div class="parallax">
-        <img style="display: block; ; transform: translate3d(-50%, -100px, 0px)" alt="bg" th:src="@{ ./images/bg.jpg }"></img>
+        <img style="display: block; ; transform: translate3d(-50%, -100px, 0px)" alt="bg" th:src="@{./images/bg.jpg}"></img>
         <div class="mask"></div>
     </div>
 </div>
@@ -44,7 +44,7 @@
 
     <div class=" center" style="margin-top: 10px">
         <div class="card darken-1">
-            <img th:src="@{./images/user.jpg}" alt="user" class="circle" style="height: 100px; margin-left: 10px; margin-top: 10px"></img>
+            <img th:src="${photo}" alt="user" class="circle" style="height: 100px; margin-left: 10px; margin-top: 10px"></img>
             <span class="card-title">Welcome in user panel <span th:text="${nickname}"/>!</span>
             <div class="card-content" style="padding-bottom: 50px">
                 <h5 class="center" style="font-weight: bold; border-bottom: solid #0ac920 3px; padding-bottom: 10px">Your data:</h5>

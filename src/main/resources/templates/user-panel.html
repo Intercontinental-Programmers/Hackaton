@@ -55,7 +55,7 @@
         <div class="row">
             <div class="card horizontal">
                 <div class="card-image">
-                    <img th:src="@{./images/breakfast.jpg}" alt="img" style="height: 150px; width: 150px"></img>
+                    <img th:src="${breakfastImg}" alt="img" style="height: 150px; width: 150px"></img>
                 </div>
                 <div class="card-stacked" style="margin-left: 10px">
                     <span class="card-title"><p th:text="${breakfast}"/></span>
@@ -70,12 +70,14 @@
             </div>
         </div>
         <div id="dialog" title="T buy list:">
-            <p>TUTAJ RZECZY</p>
+            <p>Papryka</p>
+            <p>Jajka</p>
+            <p>Chleb</p>
         </div>
         <div class="row">
             <div class="card horizontal">
                 <div class="card-image">
-                    <img th:src="@{./images/dinner.jpg}" alt="img" style="height: 150px; width: 150px"></img>
+                    <img th:src="${dinnerImg}" alt="img" style="height: 150px; width: 150px"></img>
                 </div>
                 <div class="card-stacked" style="margin-left: 10px">
                     <span class="card-title"><p th:text="${dinner}"/></span>
@@ -93,14 +95,14 @@
         <div class="row">
             <div class="card horizontal">
                 <div class="card-image">
-                    <img th:src="@{./images/supper.jpg}" alt="img" style="height: 150px; width: 150px"></img>
+                    <img th:src="${supperImg}" alt="img" style="height: 150px; width: 150px"></img>
                 </div>
                 <div class="card-stacked" style="margin-left: 10px">
                     <span class="card-title"><p th:text="${supper}"/></span>
                     <div class="card-contene">
                     </div>
                     <div class="card-action">
-                        <a href="/receipt?type=dinner"> See the receipt!</a>
+                        <a href="/receipt?type=supper"> See the receipt!</a>
                         <a><i class="material-icons right" id="4" onclick="changeHand(this.id)">thumb_down</i></a>
                         <a><i class="material-icons right" id="5" onclick="changeHand(this.id)">thumb_up</i></a>
                     </div>
