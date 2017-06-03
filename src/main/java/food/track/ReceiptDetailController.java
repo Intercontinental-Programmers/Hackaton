@@ -1,7 +1,9 @@
 package food.track;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -10,8 +12,23 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ReceiptDetailController {
     @RequestMapping("/receipt")
-    public ModelAndView receipt() {
-        ModelAndView receiptView = new ModelAndView("receipt");
-        return receiptView;
+    public String receipt(@RequestParam(value="type", required=false, defaultValue="") String name, Model model) {
+        if(name.equals("breakfast")){
+
+        }
+        else{
+            if(name.equals("dinner")){
+
+            }
+            else{
+                if(name.equals("supper")){
+
+                }
+                else{
+                    return "index";
+                }
+            }
+        }
+        return "receipt";
     }
 }
